@@ -1,0 +1,26 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+    methods: [GET, POST]
+
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+    methods: [GET, POST]
+
+welcome:
+    path: /welcome
+    controller: App\Controller\SecurityController::welcome
+    methods: [GET]
+
+logout:
+    path: /logout
+
+candidate_page:
+    path: /candidate/{id}
+    controller: App\Controller\CandidateController::show
+    methods: [GET]

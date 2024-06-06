@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vote{% endblock %}
+
+{% block body %}
+    <h1>Vote</h1>
+    {{ form_start(voteForm) }}
+        {{ form_row(voteForm.electionName) }}
+        {{ form_row(voteForm.candidate) }}
+        <button class="btn">Submit Vote</button>
+    {{ form_end(voteForm) }}
+{% endblock %}
+

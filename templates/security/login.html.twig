@@ -1,0 +1,21 @@
+{# templates/security/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Connexion</h1>
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="/login" method="POST">
+        <label for="username">ID Electeur:</label>
+        <input type="text" id="username" name="idelecteur" value="{{ last_username }}" required>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="_password" required>
+
+        <button type="submit">Se connecter</button>
+    </form>
+{% endblock %}
+

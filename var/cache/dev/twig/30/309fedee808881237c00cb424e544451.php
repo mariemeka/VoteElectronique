@@ -913,6 +913,6 @@ class __TwigTemplate_6e8bb7c7e930d0ae8c2a93136f3fa970 extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/translation.html.twig", "/home/marieme/vote-electronique/vendor/symfony/web-profiler-bundle/Resources/views/Collector/translation.html.twig");
+", "@WebProfiler/Collector/translation.html.twig", "/home/marieme/VoteElectronique/vendor/symfony/web-profiler-bundle/Resources/views/Collector/translation.html.twig");
     }
 }

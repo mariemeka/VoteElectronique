@@ -840,6 +840,6 @@ class __TwigTemplate_e9c9bc914e0f7f9223919bd65df137b6 extends Template
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "/home/marieme/vote-electronique/vendor/symfony/web-profiler-bundle/Resources/views/Collector/config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "/home/marieme/VoteElectronique/vendor/symfony/web-profiler-bundle/Resources/views/Collector/config.html.twig");
     }
 }

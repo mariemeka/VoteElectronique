@@ -1,0 +1,131 @@
+{# templates/candidate/show.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>{{ candidate.name }} - Détails du candidat</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+</head>
+
+<body>
+<br><br><br><br><br><br>    <br><br><br>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+            <a href="#" class="logo d-flex align-items-center me-auto">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                <h1 class="sitename">Vote Electronique</h1>
+            </a>
+            
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{{ path('welcome') }}" class="">Accueil</a></li>
+                    <li><a href="#">A Propos</a></li>
+                    <li><a href="#">Fonctionnalités</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Candidate Details Section -->
+        <section id="candidate-details" class="candidate-details section">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="{{ asset('assets/img/candidate1.jpeg') }}" alt="{{ candidate.name }}" class="img-fluid">
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>{{ candidate.name }}</h2>
+                        <p><strong>Âge :</strong> {{ candidate.age }}</p>
+                        <p><strong>Parti :</strong> {{ candidate.party }}</p>
+                        <p><strong>Programme :</strong> {{ candidate.program }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Candidate Details Section -->
+
+<br><br><br><br><br><br>    <br><br><br>
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <!-- Add contact form or details here if needed -->
+        </section>
+        <!-- /Contact Section -->
+    </main>
+
+    <footer id="footer" class="footer position-relative">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="#" class="logo d-flex align-items-center">
+                        <span class="sitename">Vote Electronique</span>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>33 rue St-Leu</p>
+                        <p>Amiens, 80000</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+33 00 00 00 00 00</span></p>
+                        <p><strong>Email:</strong> <span>groupeJMM@example.com</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                    <form action="forms/newsletter.php" method="post" class="php-email-form">
+                        <div class="newsletter-form">
+                            <input type="email" name="email">
+                            <input type="submit" value="Subscribe">
+                        </div>
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+</body>
+</html>
+
+
+

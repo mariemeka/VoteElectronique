@@ -1850,6 +1850,6 @@ class __TwigTemplate_cdbf9c81a9875aea4b9bc137495a1e59 extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/home/marieme/vote-electronique/vendor/doctrine/doctrine-bundle/templates/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/home/marieme/VoteElectronique/vendor/doctrine/doctrine-bundle/templates/Collector/db.html.twig");
     }
 }

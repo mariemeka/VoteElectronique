@@ -28,3 +28,6 @@ services:
         tags: ['controller.service_arguments']
         
    
+    App\Controller\VoteController:
+        tags: ['controller.service_arguments']     
+   

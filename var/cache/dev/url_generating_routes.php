@@ -17,10 +17,11 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_user' => [['idelecteur'], ['_controller' => 'App\\Controller\\UserController::show'], [], [['variable', '', '[^/]++', 'idelecteur', true], ['text', '/user']], [], [], []],
-    'submit_vote' => [[], ['_controller' => 'App\\Controller\\VoteController::submitVoteAction'], [], [['text', '/submit_vote']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
-    'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'welcome' => [[], ['_controller' => 'App\\Controller\\SecurityController::welcome'], [], [['text', '/welcome']], [], [], []],
     'logout' => [[], [], [], [['text', '/logout']], [], [], []],
     'candidate_page' => [['id'], ['_controller' => 'App\\Controller\\CandidateController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/candidate']], [], [], []],
+    'submitvote' => [[], ['_controller' => 'App\\Controller\\VoteController::submitvote'], [], [['text', '/submitvote']], [], [], []],
+    'vote_page' => [[], ['_controller' => 'App\\Controller\\VoteController::votePage'], [], [['text', '/vote']], [], [], []],
+    'vote_confirmation' => [[], ['_controller' => 'App\\Controller\\VoteController::voteConfirmation'], [], [['text', '/vote-confirmation']], [], [], []],
 ];

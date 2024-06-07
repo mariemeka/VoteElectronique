@@ -154,6 +154,22 @@ class __TwigTemplate_4a3badaba96071ad18133a8b1470fec5 extends Template
                 </div>
             </div>
         </section>
+        
+                <div class=\"container\" style=\"margin-top: 20px;\">
+            <a href=\"";
+        // line 67
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("welcome");
+        yield "\" class=\"btn btn-primary\">Retour à la page d'accueil</a>
+         
+        </div>
+ <form method=\"post\" action=\"";
+        // line 70
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("submitvote");
+        yield "\">
+    <button type=\"submit\" class=\"btn btn-success\">Voter</button>
+</form>
+        
+        
         <!-- /Candidate Details Section -->
 
 <br><br><br><br><br><br>    <br><br><br>
@@ -212,23 +228,23 @@ class __TwigTemplate_4a3badaba96071ad18133a8b1470fec5 extends Template
 
     <!-- JavaScript Files -->
     <script src=\"";
-        // line 122
+        // line 132
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 123
+        // line 133
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/aos/aos.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 124
+        // line 134
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/glightbox/js/glightbox.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 125
+        // line 135
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/swiper/swiper-bundle.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 126
+        // line 136
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         yield "\"></script>
 </body>
@@ -267,7 +283,7 @@ class __TwigTemplate_4a3badaba96071ad18133a8b1470fec5 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  232 => 126,  228 => 125,  224 => 124,  220 => 123,  216 => 122,  151 => 60,  147 => 59,  143 => 58,  139 => 57,  131 => 54,  112 => 38,  103 => 32,  92 => 24,  86 => 21,  82 => 20,  78 => 19,  74 => 18,  70 => 17,  64 => 14,  60 => 13,  52 => 8,  44 => 2,);
+        return array (  248 => 136,  244 => 135,  240 => 134,  236 => 133,  232 => 132,  167 => 70,  161 => 67,  151 => 60,  147 => 59,  143 => 58,  139 => 57,  131 => 54,  112 => 38,  103 => 32,  92 => 24,  86 => 21,  82 => 20,  78 => 19,  74 => 18,  70 => 17,  64 => 14,  60 => 13,  52 => 8,  44 => 2,);
     }
 
     public function getSourceContext()
@@ -336,6 +352,16 @@ class __TwigTemplate_4a3badaba96071ad18133a8b1470fec5 extends Template
                 </div>
             </div>
         </section>
+        
+                <div class=\"container\" style=\"margin-top: 20px;\">
+            <a href=\"{{ path('welcome') }}\" class=\"btn btn-primary\">Retour à la page d'accueil</a>
+         
+        </div>
+ <form method=\"post\" action=\"{{ path('submitvote') }}\">
+    <button type=\"submit\" class=\"btn btn-success\">Voter</button>
+</form>
+        
+        
         <!-- /Candidate Details Section -->
 
 <br><br><br><br><br><br>    <br><br><br>

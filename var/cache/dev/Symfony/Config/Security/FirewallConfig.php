@@ -4,6 +4,17 @@ namespace Symfony\Config\Security;
 
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LogoutConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'SwitchUserConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LoginThrottlingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'X509Config.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'RemoteUserConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LoginLinkConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'FormLoginConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'FormLoginLdapConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'JsonLoginConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'JsonLoginLdapConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'HttpBasicConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'HttpBasicLdapConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'RememberMeConfig.php';
 
 use Symfony\Component\Config\Loader\ParamConfigurator;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
@@ -29,6 +40,18 @@ class FirewallConfig
     private $logout;
     private $switchUser;
     private $requiredBadges;
+    private $customAuthenticators;
+    private $loginThrottling;
+    private $x509;
+    private $remoteUser;
+    private $loginLink;
+    private $formLogin;
+    private $formLoginLdap;
+    private $jsonLogin;
+    private $jsonLoginLdap;
+    private $httpBasic;
+    private $httpBasicLdap;
+    private $rememberMe;
     private $_usedProperties = [];
 
     /**
@@ -239,6 +262,151 @@ class FirewallConfig
         return $this;
     }
 
+    /**
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
+     * @return $this
+     */
+    public function customAuthenticators(ParamConfigurator|array $value): static
+    {
+        $this->_usedProperties['customAuthenticators'] = true;
+        $this->customAuthenticators = $value;
+
+        return $this;
+    }
+
+    public function loginThrottling(array $value = []): \Symfony\Config\Security\FirewallConfig\LoginThrottlingConfig
+    {
+        if (null === $this->loginThrottling) {
+            $this->_usedProperties['loginThrottling'] = true;
+            $this->loginThrottling = new \Symfony\Config\Security\FirewallConfig\LoginThrottlingConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "loginThrottling()" has already been initialized. You cannot pass values the second time you call loginThrottling().');
+        }
+
+        return $this->loginThrottling;
+    }
+
+    public function x509(array $value = []): \Symfony\Config\Security\FirewallConfig\X509Config
+    {
+        if (null === $this->x509) {
+            $this->_usedProperties['x509'] = true;
+            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "x509()" has already been initialized. You cannot pass values the second time you call x509().');
+        }
+
+        return $this->x509;
+    }
+
+    public function remoteUser(array $value = []): \Symfony\Config\Security\FirewallConfig\RemoteUserConfig
+    {
+        if (null === $this->remoteUser) {
+            $this->_usedProperties['remoteUser'] = true;
+            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "remoteUser()" has already been initialized. You cannot pass values the second time you call remoteUser().');
+        }
+
+        return $this->remoteUser;
+    }
+
+    public function loginLink(array $value = []): \Symfony\Config\Security\FirewallConfig\LoginLinkConfig
+    {
+        if (null === $this->loginLink) {
+            $this->_usedProperties['loginLink'] = true;
+            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "loginLink()" has already been initialized. You cannot pass values the second time you call loginLink().');
+        }
+
+        return $this->loginLink;
+    }
+
+    public function formLogin(array $value = []): \Symfony\Config\Security\FirewallConfig\FormLoginConfig
+    {
+        if (null === $this->formLogin) {
+            $this->_usedProperties['formLogin'] = true;
+            $this->formLogin = new \Symfony\Config\Security\FirewallConfig\FormLoginConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "formLogin()" has already been initialized. You cannot pass values the second time you call formLogin().');
+        }
+
+        return $this->formLogin;
+    }
+
+    public function formLoginLdap(array $value = []): \Symfony\Config\Security\FirewallConfig\FormLoginLdapConfig
+    {
+        if (null === $this->formLoginLdap) {
+            $this->_usedProperties['formLoginLdap'] = true;
+            $this->formLoginLdap = new \Symfony\Config\Security\FirewallConfig\FormLoginLdapConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "formLoginLdap()" has already been initialized. You cannot pass values the second time you call formLoginLdap().');
+        }
+
+        return $this->formLoginLdap;
+    }
+
+    public function jsonLogin(array $value = []): \Symfony\Config\Security\FirewallConfig\JsonLoginConfig
+    {
+        if (null === $this->jsonLogin) {
+            $this->_usedProperties['jsonLogin'] = true;
+            $this->jsonLogin = new \Symfony\Config\Security\FirewallConfig\JsonLoginConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "jsonLogin()" has already been initialized. You cannot pass values the second time you call jsonLogin().');
+        }
+
+        return $this->jsonLogin;
+    }
+
+    public function jsonLoginLdap(array $value = []): \Symfony\Config\Security\FirewallConfig\JsonLoginLdapConfig
+    {
+        if (null === $this->jsonLoginLdap) {
+            $this->_usedProperties['jsonLoginLdap'] = true;
+            $this->jsonLoginLdap = new \Symfony\Config\Security\FirewallConfig\JsonLoginLdapConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "jsonLoginLdap()" has already been initialized. You cannot pass values the second time you call jsonLoginLdap().');
+        }
+
+        return $this->jsonLoginLdap;
+    }
+
+    public function httpBasic(array $value = []): \Symfony\Config\Security\FirewallConfig\HttpBasicConfig
+    {
+        if (null === $this->httpBasic) {
+            $this->_usedProperties['httpBasic'] = true;
+            $this->httpBasic = new \Symfony\Config\Security\FirewallConfig\HttpBasicConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "httpBasic()" has already been initialized. You cannot pass values the second time you call httpBasic().');
+        }
+
+        return $this->httpBasic;
+    }
+
+    public function httpBasicLdap(array $value = []): \Symfony\Config\Security\FirewallConfig\HttpBasicLdapConfig
+    {
+        if (null === $this->httpBasicLdap) {
+            $this->_usedProperties['httpBasicLdap'] = true;
+            $this->httpBasicLdap = new \Symfony\Config\Security\FirewallConfig\HttpBasicLdapConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "httpBasicLdap()" has already been initialized. You cannot pass values the second time you call httpBasicLdap().');
+        }
+
+        return $this->httpBasicLdap;
+    }
+
+    public function rememberMe(array $value = []): \Symfony\Config\Security\FirewallConfig\RememberMeConfig
+    {
+        if (null === $this->rememberMe) {
+            $this->_usedProperties['rememberMe'] = true;
+            $this->rememberMe = new \Symfony\Config\Security\FirewallConfig\RememberMeConfig($value);
+        } elseif (0 < \func_num_args()) {
+            throw new InvalidConfigurationException('The node created by "rememberMe()" has already been initialized. You cannot pass values the second time you call rememberMe().');
+        }
+
+        return $this->rememberMe;
+    }
+
     public function __construct(array $value = [])
     {
         if (array_key_exists('pattern', $value)) {
@@ -337,6 +505,78 @@ class FirewallConfig
             unset($value['required_badges']);
         }
 
+        if (array_key_exists('custom_authenticators', $value)) {
+            $this->_usedProperties['customAuthenticators'] = true;
+            $this->customAuthenticators = $value['custom_authenticators'];
+            unset($value['custom_authenticators']);
+        }
+
+        if (array_key_exists('login_throttling', $value)) {
+            $this->_usedProperties['loginThrottling'] = true;
+            $this->loginThrottling = new \Symfony\Config\Security\FirewallConfig\LoginThrottlingConfig($value['login_throttling']);
+            unset($value['login_throttling']);
+        }
+
+        if (array_key_exists('x509', $value)) {
+            $this->_usedProperties['x509'] = true;
+            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value['x509']);
+            unset($value['x509']);
+        }
+
+        if (array_key_exists('remote_user', $value)) {
+            $this->_usedProperties['remoteUser'] = true;
+            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value['remote_user']);
+            unset($value['remote_user']);
+        }
+
+        if (array_key_exists('login_link', $value)) {
+            $this->_usedProperties['loginLink'] = true;
+            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value['login_link']);
+            unset($value['login_link']);
+        }
+
+        if (array_key_exists('form_login', $value)) {
+            $this->_usedProperties['formLogin'] = true;
+            $this->formLogin = new \Symfony\Config\Security\FirewallConfig\FormLoginConfig($value['form_login']);
+            unset($value['form_login']);
+        }
+
+        if (array_key_exists('form_login_ldap', $value)) {
+            $this->_usedProperties['formLoginLdap'] = true;
+            $this->formLoginLdap = new \Symfony\Config\Security\FirewallConfig\FormLoginLdapConfig($value['form_login_ldap']);
+            unset($value['form_login_ldap']);
+        }
+
+        if (array_key_exists('json_login', $value)) {
+            $this->_usedProperties['jsonLogin'] = true;
+            $this->jsonLogin = new \Symfony\Config\Security\FirewallConfig\JsonLoginConfig($value['json_login']);
+            unset($value['json_login']);
+        }
+
+        if (array_key_exists('json_login_ldap', $value)) {
+            $this->_usedProperties['jsonLoginLdap'] = true;
+            $this->jsonLoginLdap = new \Symfony\Config\Security\FirewallConfig\JsonLoginLdapConfig($value['json_login_ldap']);
+            unset($value['json_login_ldap']);
+        }
+
+        if (array_key_exists('http_basic', $value)) {
+            $this->_usedProperties['httpBasic'] = true;
+            $this->httpBasic = new \Symfony\Config\Security\FirewallConfig\HttpBasicConfig($value['http_basic']);
+            unset($value['http_basic']);
+        }
+
+        if (array_key_exists('http_basic_ldap', $value)) {
+            $this->_usedProperties['httpBasicLdap'] = true;
+            $this->httpBasicLdap = new \Symfony\Config\Security\FirewallConfig\HttpBasicLdapConfig($value['http_basic_ldap']);
+            unset($value['http_basic_ldap']);
+        }
+
+        if (array_key_exists('remember_me', $value)) {
+            $this->_usedProperties['rememberMe'] = true;
+            $this->rememberMe = new \Symfony\Config\Security\FirewallConfig\RememberMeConfig($value['remember_me']);
+            unset($value['remember_me']);
+        }
+
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
@@ -392,6 +632,42 @@ class FirewallConfig
         }
         if (isset($this->_usedProperties['requiredBadges'])) {
             $output['required_badges'] = $this->requiredBadges;
+        }
+        if (isset($this->_usedProperties['customAuthenticators'])) {
+            $output['custom_authenticators'] = $this->customAuthenticators;
+        }
+        if (isset($this->_usedProperties['loginThrottling'])) {
+            $output['login_throttling'] = $this->loginThrottling->toArray();
+        }
+        if (isset($this->_usedProperties['x509'])) {
+            $output['x509'] = $this->x509->toArray();
+        }
+        if (isset($this->_usedProperties['remoteUser'])) {
+            $output['remote_user'] = $this->remoteUser->toArray();
+        }
+        if (isset($this->_usedProperties['loginLink'])) {
+            $output['login_link'] = $this->loginLink->toArray();
+        }
+        if (isset($this->_usedProperties['formLogin'])) {
+            $output['form_login'] = $this->formLogin->toArray();
+        }
+        if (isset($this->_usedProperties['formLoginLdap'])) {
+            $output['form_login_ldap'] = $this->formLoginLdap->toArray();
+        }
+        if (isset($this->_usedProperties['jsonLogin'])) {
+            $output['json_login'] = $this->jsonLogin->toArray();
+        }
+        if (isset($this->_usedProperties['jsonLoginLdap'])) {
+            $output['json_login_ldap'] = $this->jsonLoginLdap->toArray();
+        }
+        if (isset($this->_usedProperties['httpBasic'])) {
+            $output['http_basic'] = $this->httpBasic->toArray();
+        }
+        if (isset($this->_usedProperties['httpBasicLdap'])) {
+            $output['http_basic_ldap'] = $this->httpBasicLdap->toArray();
+        }
+        if (isset($this->_usedProperties['rememberMe'])) {
+            $output['remember_me'] = $this->rememberMe->toArray();
         }
 
         return $output;

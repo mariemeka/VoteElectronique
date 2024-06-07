@@ -7,11 +7,6 @@ home:
     controller: App\Controller\HomeController::index
     methods: [GET, POST]
 
-login:
-    path: /login
-    controller: App\Controller\SecurityController::login
-    methods: [GET, POST]
-
 welcome:
     path: /welcome
     controller: App\Controller\SecurityController::welcome
@@ -24,3 +19,20 @@ candidate_page:
     path: /candidate/{id}
     controller: App\Controller\CandidateController::show
     methods: [GET]
+    
+submitvote:
+    path: /submitvote
+    controller: App\Controller\VoteController::submitvote
+    methods: [GET,POST]
+   
+
+vote_page:
+    path: /vote
+    controller: App\Controller\VoteController::votePage
+    
+vote_confirmation:
+    path: /vote-confirmation
+    controller: App\Controller\VoteController::voteConfirmation
+    methods: ['GET']
+
+

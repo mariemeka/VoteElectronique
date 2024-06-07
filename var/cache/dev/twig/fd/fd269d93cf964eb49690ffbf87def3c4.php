@@ -308,8 +308,6 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
         yield "\"></script>
 </body>
 </html>
-
-
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -513,8 +511,6 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
     <script src=\"{{ asset('assets/js/main.js') }}\"></script>
 </body>
 </html>
-
-
 ", "security/welcome.html.twig", "/home/marieme/VoteElectronique/templates/security/welcome.html.twig");
     }
 }

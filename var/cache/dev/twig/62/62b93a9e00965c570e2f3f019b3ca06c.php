@@ -175,7 +175,7 @@ class __TwigTemplate_57a68c640be26f8e2ab331e3cb38c32e extends Template
   
         <section id=\"features\" class=\"features section\">
             <div class=\"container section-title\" data-aos=\"fade-up\">
-                <h2 class=\"\">Inscription</h2>
+                <h2 class=\"\">Se Connecter</h2>
                 <p>Veillez renseigner votre numero electeur et votre mot de passe afin d'acceder à la page de vote. </p>
             </div>
 
@@ -453,7 +453,7 @@ class __TwigTemplate_57a68c640be26f8e2ab331e3cb38c32e extends Template
   
         <section id=\"features\" class=\"features section\">
             <div class=\"container section-title\" data-aos=\"fade-up\">
-                <h2 class=\"\">Inscription</h2>
+                <h2 class=\"\">Se Connecter</h2>
                 <p>Veillez renseigner votre numero electeur et votre mot de passe afin d'acceder à la page de vote. </p>
             </div>
 

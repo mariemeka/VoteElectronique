@@ -32,4 +32,5 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/welcome, roles: ROLE_USER }
+        - { path: ^/submitvote, roles: ROLE_USER }
 

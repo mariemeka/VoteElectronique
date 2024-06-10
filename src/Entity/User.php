@@ -45,6 +45,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'date')] 
     private $datenaiss;
      
+    #[ORM\Column(type: 'text', name: 'public_key')]
+    private $publicKey;
+
+    public function getPublicKey(): ?string
+    {
+        return $this->publicKey;
+    }
+
+    public function setPublicKey(string $publicKey): self
+    {
+        $this->publicKey = $publicKey;
+
+        return $this;
+    }
+     
      
     public function setIdelecteur(string $idelecteur): self
     {
@@ -147,7 +162,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
+       
     }
 
     public function getRoles(): array
@@ -158,7 +173,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getSalt(): ?string
     {
-        return null; // bcrypt doesn't require a separate salt.
+        return null; 
     }
 }
 

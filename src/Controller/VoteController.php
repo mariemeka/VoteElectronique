@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Vote;
 use App\Entity\Candidate;
+use App\Entity\User;
+use ParagonIE\Sodium\Core\Crypto;
 
 class VoteController extends AbstractController
 {
@@ -29,35 +31,48 @@ class VoteController extends AbstractController
         }
 
         $userId = $this->getUser()->getIdelecteur();
-        $electionName = 'élection presidentielle';
+        
         $dateVote = new \DateTime();
 
-        // Verify if the candidate ID is valid
+        
         $candidate = $this->entityManager->getRepository(Candidate::class)->find($candidateId);
         if (!$candidate) {
             $this->addFlash('error', 'Le candidat sélectionné n\'est pas valide.');
             return $this->redirectToRoute('vote_page');
         }
 
-        // Verify if the user has already voted
-        $existingVote = $this->entityManager->getRepository(Vote::class)->findOneBy(['voter' => $userId, 'electionName' => $electionName]);
+      
+        $existingVote = $this->entityManager->getRepository(Vote::class)->findOneBy(['voter' => $userId]);
         if ($existingVote) {
             $this->addFlash('info', 'Vous avez déjà voté.');
             return $this->redirectToRoute('vote_confirmation');
         }
 
-        // Create a new vote
+        // Generate a key pair for signing the vote
+        $keyPair = sodium_crypto_sign_keypair();
+        $publicKey = sodium_crypto_sign_publickey($keyPair);
+        $privateKey = sodium_crypto_sign_secretkey($keyPair);
+
+        // Create the message to be signed
+        $message = json_encode(['candidateId' => $candidateId, 'userId' => $userId]);
+
+        // Sign the message
+        $signature = sodium_crypto_sign_detached($message, $privateKey);
+
+       
         $vote = new Vote();
         $vote->setCandidateId($candidate->getId());
         $vote->setVoter($userId);
-        $vote->setElectionName($electionName);
         $vote->setDateVote($dateVote);
+       
+        $vote->setSignature(base64_encode($signature)); // Store the signature as a base64 encoded string
+        $vote->setPublicKey(base64_encode($publicKey)); // Store the public key as a base64 encoded string
 
         // Save the vote to the database
         $this->entityManager->persist($vote);
         $this->entityManager->flush();
 
-        // Set a session variable to indicate successful vote
+       
         $session = $request->getSession();
         $session->set('hasVoted', true);
 
@@ -81,10 +96,10 @@ class VoteController extends AbstractController
     public function voteConfirmation(Request $request): Response
     {
         $userId = $this->getUser()->getIdelecteur();
-        $electionName = 'élection presidentielle';
+       
 
         // Check if the user has already voted
-        $existingVote = $this->entityManager->getRepository(Vote::class)->findOneBy(['voter' => $userId, 'electionName' => $electionName]);
+        $existingVote = $this->entityManager->getRepository(Vote::class)->findOneBy(['voter' => $userId]);
 
         // Check the session variable to see if the user just voted
         $session = $request->getSession();
@@ -115,6 +130,16 @@ class VoteController extends AbstractController
         return $this->render('results.html.twig', [
             'results' => $results,
         ]);
+    }
+
+    private function getPublicKeys(): array
+    {
+        $users = $this->entityManager->getRepository(User::class)->findAll();
+        $publicKeys = [];
+        foreach ($users as $user) {
+            $publicKeys[] = base64_decode($user->getPublicKey());
+        }
+        return $publicKeys;
     }
 }
 

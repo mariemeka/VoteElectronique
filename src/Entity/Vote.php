@@ -16,8 +16,7 @@ class Vote
     #[ORM\Column(type: 'integer')]
     private $id;
 
-  #[ORM\Column(type: 'string', length: 255)]
-    private $electionName;
+ 
 
   #[ORM\Column(type: 'string', length: 255)]
     private $voter;
@@ -31,6 +30,52 @@ class Vote
       #ORM\ManyToOne(targetEntity="Candidate")
     #ORM\JoinColumn(name="candidateid", referencedColumnName="id")
 	private $candidate;
+	
+	
+   
+    
+    #[ORM\Column(type: 'text', name: 'public_key')]
+    private $publicKey;
+    
+    public function getPublicKey(): ?string
+    {
+        return $this->publicKey;
+    }
+
+    public function setPublicKey(string $publicKey): self
+    {
+        $this->publicKey = $publicKey;
+
+        return $this;
+    }
+	
+
+    public function getEncryptedVote(): ?string
+    {
+        return $this->encryptedVote;
+    }
+
+    public function setEncryptedVote(string $encryptedVote): self
+    {
+        $this->encryptedVote = $encryptedVote;
+
+        return $this;
+    }
+	
+	
+   //  #[ORM\Column(type: 'text')]
+    //private $encryptedVote;
+
+     #[ORM\Column(type: 'text')]
+    private $signature;
+    
+    public function setSignature(string $signature): self
+    {
+        $this->signature = $signature;
+
+        return $this;
+    }
+
 
 public function getCandidate(): ?Candidate
     {
@@ -48,17 +93,7 @@ public function getCandidate(): ?Candidate
         return $this->id;
     }
 
-    public function getElectionName(): ?string
-    {
-        return $this->electionName;
-    }
-
-    public function setElectionName(string $electionName): self
-    {
-        $this->electionName = $electionName;
-
-        return $this;
-    }
+  
 
     public function getVoter(): ?string
     {

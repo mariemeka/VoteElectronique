@@ -87,6 +87,9 @@ class __TwigTemplate_c302dfc90305ba168c703e5308e6bc0a extends Template
         yield "    <a href=\"";
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("election_results");
         yield "\">View Election Results</a>
+
+ <a class=\"btn-getstarted\" href=\"/\">Deconnexion</a>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -136,6 +139,9 @@ class __TwigTemplate_c302dfc90305ba168c703e5308e6bc0a extends Template
         <p>Il semble que vous n'ayez pas voté encore.</p>
     {% endif %}
     <a href=\"{{ path('election_results') }}\">View Election Results</a>
+
+ <a class=\"btn-getstarted\" href=\"/\">Deconnexion</a>
+
 {% endblock %}
 
 ", "vote_confirmation.html.twig", "/home/marieme/VoteElectronique/templates/vote_confirmation.html.twig");

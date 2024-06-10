@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '3df45b6f8429206f2953bfb4957fec7e76574d97',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3df45b6f8429206f2953bfb4957fec7e76574d97',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -289,6 +289,33 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'guzzlehttp/guzzle' => array(
+            'pretty_version' => '7.8.1',
+            'version' => '7.8.1.0',
+            'reference' => '41042bc7ab002487b876a0683fc8dce04ddce104',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/guzzle',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'guzzlehttp/promises' => array(
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
+            'reference' => 'bbff78d96034045e58e13dedd6ad91b5d1253223',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/promises',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'guzzlehttp/psr7' => array(
+            'pretty_version' => '2.6.2',
+            'version' => '2.6.2.0',
+            'reference' => '45b30f99ac27b5ca93cb4831afe16285f57b8221',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kelunik/certificate' => array(
             'pretty_version' => 'v1.1.3',
             'version' => '1.1.3.0',
@@ -360,6 +387,15 @@
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'paragonie/sodium_compat' => array(
+            'pretty_version' => 'v2.0.1',
+            'version' => '2.0.1.0',
+            'reference' => 'f65c82939ab17aeff538f9bf6d582f65cc7f255e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paragonie/sodium_compat',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(
             'pretty_version' => '2.0.4',
@@ -526,6 +562,15 @@
                 0 => '1.0',
             ),
         ),
+        'psr/http-client' => array(
+            'pretty_version' => '1.0.3',
+            'version' => '1.0.3.0',
+            'reference' => 'bb5906edc1c324c9a05aa0873d40117941e5fa90',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/http-client',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'psr/http-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
@@ -541,6 +586,12 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'psr/http-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
         'psr/http-message' => array(
             'pretty_version' => '2.0',
             'version' => '2.0.0.0',
@@ -549,6 +600,12 @@
             'install_path' => __DIR__ . '/../psr/http-message',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'psr/http-message-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
         ),
         'psr/link' => array(
             'pretty_version' => '2.0.1',
@@ -586,6 +643,15 @@
             'provided' => array(
                 0 => '1.0|2.0|3.0',
             ),
+        ),
+        'ralouphie/getallheaders' => array(
+            'pretty_version' => '3.0.3',
+            'version' => '3.0.3.0',
+            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(
             'pretty_version' => '1.0.2',

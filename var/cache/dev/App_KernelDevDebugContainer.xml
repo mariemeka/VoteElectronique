@@ -1549,6 +1549,11 @@
       <argument type="service" id="assets._version__default"/>
       <argument type="service" id="assets.context"/>
     </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id=".debug.http_client"/>
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
     <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
       <argument type="abstract">http codes</argument>
       <argument type="abstract">delay ms</argument>
@@ -8306,6 +8311,7 @@
     <service id="Symfony\Contracts\Translation\TranslatorInterface" alias="translator.data_collector"/>
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages"/>
     <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="mailer" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\Transport\TransportInterface" alias="mailer.default_transport"/>

@@ -1,0 +1,15 @@
+{# templates/vote_confirmation.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Vote Confirmation</h1>
+    {% if hasJustVoted %}
+        <p>Votre vote a été soumis avec succès.</p>
+    {% elseif hasVoted %}
+        <p>Vous avez déjà voté.</p>
+    {% else %}
+        <p>Il semble que vous n'ayez pas voté encore.</p>
+    {% endif %}
+    <a href="{{ path('election_results') }}">View Election Results</a>
+{% endblock %}
+

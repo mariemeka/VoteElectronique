@@ -20,6 +20,8 @@ candidate_page:
     controller: App\Controller\CandidateController::show
     methods: [GET]
     
+
+    
 submitvote:
     path: /submitvote
     controller: App\Controller\VoteController::submitvote

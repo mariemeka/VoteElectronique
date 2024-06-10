@@ -1,0 +1,23 @@
+{# templates/results.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Election Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.candidate.name }}</td>
+                    <td>{{ result.voteCount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

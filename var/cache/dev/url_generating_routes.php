@@ -17,6 +17,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_user' => [['idelecteur'], ['_controller' => 'App\\Controller\\UserController::show'], [], [['variable', '', '[^/]++', 'idelecteur', true], ['text', '/user']], [], [], []],
+    'election_results' => [[], ['_controller' => 'App\\Controller\\VoteController::electionResults'], [], [['text', '/results']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
     'welcome' => [[], ['_controller' => 'App\\Controller\\SecurityController::welcome'], [], [['text', '/welcome']], [], [], []],
     'logout' => [[], [], [], [['text', '/logout']], [], [], []],

@@ -116,7 +116,9 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
                 </ul>
                 <i class=\"mobile-nav-toggle d-xl-none bi bi-list\"></i>
             </nav>
-            <a class=\"btn-getstarted\" href=\"#about\">Voter</a>
+          
+ <a class=\"btn-getstarted\" href=\"/\">Deconnexion</a>
+
         </div>
     </header>
 
@@ -126,7 +128,7 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
         <section id=\"hero\" class=\"hero section\">
             <div class=\"hero-bg\">
                 <img src=\"";
-        // line 59
+        // line 61
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/hero-bg-light.webp"), "html", null, true);
         yield "\" alt=\"\">
             </div>
@@ -144,26 +146,26 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
                  <!-- Information de l'utilisateur -->
                 <div class=\"user-info mt-5\">
                     <h2>Bienvenue, ";
-        // line 74
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 74, $this->source); })()), "nom", [], "any", false, false, false, 74), "html", null, true);
+        // line 76
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 76, $this->source); })()), "nom", [], "any", false, false, false, 76), "html", null, true);
         yield " ";
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 74, $this->source); })()), "prenom", [], "any", false, false, false, 74), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 76, $this->source); })()), "prenom", [], "any", false, false, false, 76), "html", null, true);
         yield "</h2> <br>
                     <p>Identifiant électeur: ";
-        // line 75
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 75, $this->source); })()), "idelecteur", [], "any", false, false, false, 75), "html", null, true);
+        // line 77
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 77, $this->source); })()), "idelecteur", [], "any", false, false, false, 77), "html", null, true);
         yield "</p>
                     <p>Date de naissance: ";
-        // line 76
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 76, $this->source); })()), "datenaiss", [], "any", false, false, false, 76), "d/m/Y"), "html", null, true);
+        // line 78
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 78, $this->source); })()), "datenaiss", [], "any", false, false, false, 78), "d/m/Y"), "html", null, true);
         yield "</p>
                      <p>Email: ";
-        // line 77
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 77, $this->source); })()), "email", [], "any", false, false, false, 77), "html", null, true);
+        // line 79
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 79, $this->source); })()), "email", [], "any", false, false, false, 79), "html", null, true);
         yield "</p>
                     <p>Adresse: ";
-        // line 78
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 78, $this->source); })()), "adresse", [], "any", false, false, false, 78), "html", null, true);
+        // line 80
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 80, $this->source); })()), "adresse", [], "any", false, false, false, 80), "html", null, true);
         yield "</p>
                    
                 </div>
@@ -171,15 +173,15 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
         </section>
         <!-- /Hero Section -->
 
-      <section id=\"about\" class=\"about section\">
+   <section id=\"about\" class=\"about section\">
             <!-- Photos des Candidats -->
 <div class=\"candidate-photos mt-5\">
     <h2>Les Candidats de l'election </h2>
     <div class=\"row\">
         ";
-        // line 90
+        // line 92
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["candidate_links"]) || array_key_exists("candidate_links", $context) ? $context["candidate_links"] : (function () { throw new RuntimeError('Variable "candidate_links" does not exist.', 90, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["candidate_links"]) || array_key_exists("candidate_links", $context) ? $context["candidate_links"] : (function () { throw new RuntimeError('Variable "candidate_links" does not exist.', 92, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -194,17 +196,17 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["link"]) {
-            // line 91
+            // line 93
             yield "            <div class=\"col-md-2\">
                 <a href=\"";
-            // line 92
+            // line 94
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["link"], "html", null, true);
             yield "\">
                     <img src=\"";
-            // line 93
+            // line 95
             yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/candidate1.jpeg"), "html", null, true);
             yield "\" alt=\"Candidate ";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 93), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 95), "html", null, true);
             yield "\" class=\"img-fluid\">
                
                 </a>
@@ -222,7 +224,7 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['link'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 98
+        // line 100
         yield "    </div>
 </div>
 
@@ -287,23 +289,23 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
 
     <!-- JavaScript Files -->
     <script src=\"";
-        // line 161
+        // line 163
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 162
+        // line 164
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/aos/aos.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 163
+        // line 165
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/glightbox/js/glightbox.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 164
+        // line 166
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/swiper/swiper-bundle.min.js"), "html", null, true);
         yield "\"></script>
     <script src=\"";
-        // line 165
+        // line 167
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         yield "\"></script>
 </body>
@@ -339,7 +341,7 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  307 => 165,  303 => 164,  299 => 163,  295 => 162,  291 => 161,  226 => 98,  205 => 93,  201 => 92,  198 => 91,  181 => 90,  166 => 78,  162 => 77,  158 => 76,  154 => 75,  148 => 74,  130 => 59,  106 => 38,  95 => 30,  89 => 27,  85 => 26,  81 => 25,  77 => 24,  73 => 23,  61 => 14,  57 => 13,  44 => 2,);
+        return array (  309 => 167,  305 => 166,  301 => 165,  297 => 164,  293 => 163,  228 => 100,  207 => 95,  203 => 94,  200 => 93,  183 => 92,  168 => 80,  164 => 79,  160 => 78,  156 => 77,  150 => 76,  132 => 61,  106 => 38,  95 => 30,  89 => 27,  85 => 26,  81 => 25,  77 => 24,  73 => 23,  61 => 14,  57 => 13,  44 => 2,);
     }
 
     public function getSourceContext()
@@ -393,7 +395,9 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
                 </ul>
                 <i class=\"mobile-nav-toggle d-xl-none bi bi-list\"></i>
             </nav>
-            <a class=\"btn-getstarted\" href=\"#about\">Voter</a>
+          
+ <a class=\"btn-getstarted\" href=\"/\">Deconnexion</a>
+
         </div>
     </header>
 
@@ -428,7 +432,7 @@ class __TwigTemplate_38ce270b03b7d5db570d6aabc362e9a9 extends Template
         </section>
         <!-- /Hero Section -->
 
-      <section id=\"about\" class=\"about section\">
+   <section id=\"about\" class=\"about section\">
             <!-- Photos des Candidats -->
 <div class=\"candidate-photos mt-5\">
     <h2>Les Candidats de l'election </h2>

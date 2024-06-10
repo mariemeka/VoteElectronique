@@ -129,7 +129,7 @@ class __TwigTemplate_ddcd028d2ddc22e2b25390d50f3eb769 extends Template
 
     public function getSourceContext()
     {
-        return new Source("{# templates/vote/vote_page.html.twig #}
+        return new Source("{# templates/vote_page.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block body %}

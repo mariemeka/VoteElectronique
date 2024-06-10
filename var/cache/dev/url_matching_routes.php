@@ -14,6 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/results' => [[['_route' => 'election_results', '_controller' => 'App\\Controller\\VoteController::electionResults'], null, ['GET' => 0], null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/welcome' => [[['_route' => 'welcome', '_controller' => 'App\\Controller\\SecurityController::welcome'], null, ['GET' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],

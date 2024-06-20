@@ -17,11 +17,15 @@ sudo service apache2 restart (si serveur apache)*
 
 
 ###########################################
+
 # Demarrage du serveur
 $ symfony serve:start
+
 ##########################################
+
 # Vote via Machines des bureaux
 http://localhost:8000/machine/vote
+
 ###########################################
 # Signature de cercle
 1. Compréhension des Signatures de Cercle (Ring Signatures)

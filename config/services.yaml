@@ -31,3 +31,5 @@ services:
     App\Controller\VoteController:
         tags: ['controller.service_arguments']     
    
+    App\Command\UpdateUserKeysCommand:
+        tags: ['console.command']

@@ -204,10 +204,6 @@ return [[
 '[C]App%5CEntity%5CVote%23setCandidate' => 1,
 'App%5CEntity%5CVote%23getId' => 0,
 '[C]App%5CEntity%5CVote%23getId' => 1,
-'App%5CEntity%5CVote%23getElectionName' => 0,
-'[C]App%5CEntity%5CVote%23getElectionName' => 1,
-'App%5CEntity%5CVote%23setElectionName' => 0,
-'[C]App%5CEntity%5CVote%23setElectionName' => 1,
 'App%5CEntity%5CVote%23getVoter' => 0,
 '[C]App%5CEntity%5CVote%23getVoter' => 1,
 'App%5CEntity%5CVote%23setVoter' => 0,
@@ -222,8 +218,6 @@ return [[
 '[C]App%5CEntity%5CVote%23setCandidateId' => 1,
 'App%5CEntity%5CVote%24id' => 0,
 '[C]App%5CEntity%5CVote%24id' => 1,
-'App%5CEntity%5CVote%24electionName' => 0,
-'[C]App%5CEntity%5CVote%24electionName' => 1,
 'App%5CEntity%5CVote%24voter' => 0,
 '[C]App%5CEntity%5CVote%24voter' => 1,
 'App%5CEntity%5CVote%24dateVote' => 0,
@@ -232,8 +226,6 @@ return [[
 '[C]App%5CEntity%5CVote%24candidateId' => 1,
 'App%5CEntity%5CVote%24candidate' => 0,
 '[C]App%5CEntity%5CVote%24candidate' => 1,
-'App%5CEntity%5CVote%24encryptedVote' => 0,
-'[C]App%5CEntity%5CVote%24encryptedVote' => 1,
 'App%5CEntity%5CVote%24publicKey' => 0,
 '[C]App%5CEntity%5CVote%24publicKey' => 1,
 'App%5CEntity%5CVote%24signature' => 0,
@@ -798,6 +790,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1718027775,
+1 => 1718805742,
 
 ]];

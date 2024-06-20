@@ -44,7 +44,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     
     #[ORM\Column(type: 'date')] 
     private $datenaiss;
+    
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $privateKey = null;
      
+    public function getPrivateKey(): ?string
+    {
+        return $this->privateKey;
+    }
+
+    public function setPrivateKey(?string $privateKey): self
+    {
+        $this->privateKey = $privateKey;
+        return $this;
+    }
+   
     #[ORM\Column(type: 'text', name: 'public_key')]
     private $publicKey;
 

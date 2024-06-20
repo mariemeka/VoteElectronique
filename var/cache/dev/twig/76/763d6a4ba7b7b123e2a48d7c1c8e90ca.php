@@ -67,12 +67,12 @@ class __TwigTemplate_fd9d1e04eeeef86361764bfc2acab64b extends Template
 
         // line 4
         yield "    <h1>Vote</h1>
-    <form id=\"voteForm\" method=\"post\" action=\"";
+    <form action=\"";
         // line 5
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("submitvote");
-        yield "\">
-        <label for=\"candidate\">Confirmer votre candidat :</label>
-        <select name=\"candidate\" id=\"candidate\">
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("machine_confirm");
+        yield "\" method=\"post\">
+        <label for=\"candidate\">Choisissez un candidat :</label>
+        <select id=\"candidate\" name=\"candidate\">
             ";
         // line 8
         $context['_parent'] = $context;
@@ -91,91 +91,36 @@ class __TwigTemplate_fd9d1e04eeeef86361764bfc2acab64b extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 11
         yield "        </select>
-        <input type=\"hidden\" name=\"encryptedVote\" id=\"encryptedVote\">
-        <input type=\"hidden\" name=\"signature\" id=\"signature\">
-        <button type=\"button\" class=\"btn btn-success\" onclick=\"submitVote()\">Voter</button>
+        <button type=\"submit\">Voter</button>
     </form>
-
-    <script>
-        function submitVote() {
-            var candidateId = document.getElementById('candidate').value;
-            encryptAndSign(candidateId);
+    ";
+        // line 14
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "flashes", ["success"], "method", false, false, false, 14));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 15
+            yield "        <div class=\"alert alert-success\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
+            yield "</div>
+    ";
         }
-
-        function encryptAndSign(data) {
-            encrypt(data).then(function(encryptedData) {
-                document.getElementById('encryptedVote').value = encryptedData;
-                sign(encryptedData).then(function(signature) {
-                    document.getElementById('signature').value = signature;
-                    document.getElementById('voteForm').submit();
-                });
-            });
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        yield "    ";
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "flashes", ["error"], "method", false, false, false, 17));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 18
+            yield "        <div class=\"alert alert-danger\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
+            yield "</div>
+    ";
         }
-
-        function encrypt(data) {
-            // Convertir la chaîne de données en ArrayBuffer
-            const dataBuffer = new TextEncoder().encode(data);
-
-            // Générer une clé de chiffrement RSA
-            return crypto.subtle.generateKey(
-                {
-                    name: \"RSA-OAEP\",
-                    modulusLength: 2048,
-                    publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-                    hash: { name: \"SHA-256\" },
-                },
-                true,
-                [\"encrypt\", \"decrypt\"]
-            ).then((keyPair) => {
-                // Chiffrer les données avec la clé publique RSA
-                return crypto.subtle.encrypt(
-                    {
-                        name: \"RSA-OAEP\"
-                    },
-                    keyPair.publicKey,
-                    dataBuffer
-                );
-            }).then((encryptedData) => {
-                // Convertir le résultat chiffré en base64
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(encryptedData)));
-            }).catch((error) => {
-                console.error(\"Erreur de chiffrement :\", error);
-            });
-        }
-
-        function sign(data) {
-            // Convertir la chaîne de données en ArrayBuffer
-            const dataBuffer = new TextEncoder().encode(data);
-
-            // Générer une clé de signature RSA
-            return crypto.subtle.generateKey(
-                {
-                    name: \"RSASSA-PKCS1-v1_5\",
-                    modulusLength: 2048,
-                    publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-                    hash: { name: \"SHA-256\" },
-                },
-                true,
-                [\"sign\", \"verify\"]
-            ).then((keyPair) => {
-                // Signer les données avec la clé privée RSA
-                return crypto.subtle.sign(
-                    {
-                        name: \"RSASSA-PKCS1-v1_5\",
-                        hash: { name: \"SHA-256\" },
-                    },
-                    keyPair.privateKey,
-                    dataBuffer
-                );
-            }).then((signature) => {
-                // Convertir la signature en base64
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(signature)));
-            }).catch((error) => {
-                console.error(\"Erreur de signature :\", error);
-            });
-        }
-    </script>
-";
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -206,7 +151,7 @@ class __TwigTemplate_fd9d1e04eeeef86361764bfc2acab64b extends Template
      */
     public function getDebugInfo()
     {
-        return array (  93 => 11,  82 => 9,  78 => 8,  72 => 5,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  116 => 18,  111 => 17,  102 => 15,  98 => 14,  93 => 11,  82 => 9,  78 => 8,  72 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -215,97 +160,21 @@ class __TwigTemplate_fd9d1e04eeeef86361764bfc2acab64b extends Template
 
 {% block body %}
     <h1>Vote</h1>
-    <form id=\"voteForm\" method=\"post\" action=\"{{ path('submitvote') }}\">
-        <label for=\"candidate\">Confirmer votre candidat :</label>
-        <select name=\"candidate\" id=\"candidate\">
+    <form action=\"{{ path('machine_confirm') }}\" method=\"post\">
+        <label for=\"candidate\">Choisissez un candidat :</label>
+        <select id=\"candidate\" name=\"candidate\">
             {% for candidate in candidates %}
                 <option value=\"{{ candidate.id }}\">{{ candidate.name }}</option>
             {% endfor %}
         </select>
-        <input type=\"hidden\" name=\"encryptedVote\" id=\"encryptedVote\">
-        <input type=\"hidden\" name=\"signature\" id=\"signature\">
-        <button type=\"button\" class=\"btn btn-success\" onclick=\"submitVote()\">Voter</button>
+        <button type=\"submit\">Voter</button>
     </form>
-
-    <script>
-        function submitVote() {
-            var candidateId = document.getElementById('candidate').value;
-            encryptAndSign(candidateId);
-        }
-
-        function encryptAndSign(data) {
-            encrypt(data).then(function(encryptedData) {
-                document.getElementById('encryptedVote').value = encryptedData;
-                sign(encryptedData).then(function(signature) {
-                    document.getElementById('signature').value = signature;
-                    document.getElementById('voteForm').submit();
-                });
-            });
-        }
-
-        function encrypt(data) {
-            // Convertir la chaîne de données en ArrayBuffer
-            const dataBuffer = new TextEncoder().encode(data);
-
-            // Générer une clé de chiffrement RSA
-            return crypto.subtle.generateKey(
-                {
-                    name: \"RSA-OAEP\",
-                    modulusLength: 2048,
-                    publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-                    hash: { name: \"SHA-256\" },
-                },
-                true,
-                [\"encrypt\", \"decrypt\"]
-            ).then((keyPair) => {
-                // Chiffrer les données avec la clé publique RSA
-                return crypto.subtle.encrypt(
-                    {
-                        name: \"RSA-OAEP\"
-                    },
-                    keyPair.publicKey,
-                    dataBuffer
-                );
-            }).then((encryptedData) => {
-                // Convertir le résultat chiffré en base64
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(encryptedData)));
-            }).catch((error) => {
-                console.error(\"Erreur de chiffrement :\", error);
-            });
-        }
-
-        function sign(data) {
-            // Convertir la chaîne de données en ArrayBuffer
-            const dataBuffer = new TextEncoder().encode(data);
-
-            // Générer une clé de signature RSA
-            return crypto.subtle.generateKey(
-                {
-                    name: \"RSASSA-PKCS1-v1_5\",
-                    modulusLength: 2048,
-                    publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-                    hash: { name: \"SHA-256\" },
-                },
-                true,
-                [\"sign\", \"verify\"]
-            ).then((keyPair) => {
-                // Signer les données avec la clé privée RSA
-                return crypto.subtle.sign(
-                    {
-                        name: \"RSASSA-PKCS1-v1_5\",
-                        hash: { name: \"SHA-256\" },
-                    },
-                    keyPair.privateKey,
-                    dataBuffer
-                );
-            }).then((signature) => {
-                // Convertir la signature en base64
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(signature)));
-            }).catch((error) => {
-                console.error(\"Erreur de signature :\", error);
-            });
-        }
-    </script>
+    {% for message in app.flashes('success') %}
+        <div class=\"alert alert-success\">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class=\"alert alert-danger\">{{ message }}</div>
+    {% endfor %}
 {% endblock %}
 
 ", "vote/vote_page.html.twig", "/home/marieme/VoteElectronique/templates/vote/vote_page.html.twig");

@@ -920,6 +920,7 @@ class ComposerStaticInitb6b366c54234f337b2dc5120d449464d
         'Amp\\TimeoutException' => __DIR__ . '/..' . '/amphp/amp/lib/TimeoutException.php',
         'Amp\\WindowsRegistry\\KeyNotFoundException' => __DIR__ . '/..' . '/amphp/windows-registry/lib/KeyNotFoundException.php',
         'Amp\\WindowsRegistry\\WindowsRegistry' => __DIR__ . '/..' . '/amphp/windows-registry/lib/WindowsRegistry.php',
+        'App\\Command\\UpdateUserKeysCommand' => __DIR__ . '/../..' . '/src/Command/UpdateUserKeysCommand.php',
         'App\\Command\\UpdateUserPasswordsCommand' => __DIR__ . '/../..' . '/src/Command/UpdateUserPasswordsCommand.php',
         'App\\Controller\\CandidateController' => __DIR__ . '/../..' . '/src/Controller/CandidateController.php',
         'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/src/Controller/HomeController.php',

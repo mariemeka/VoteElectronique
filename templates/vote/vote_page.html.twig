@@ -2,96 +2,20 @@
 
 {% block body %}
     <h1>Vote</h1>
-    <form id="voteForm" method="post" action="{{ path('submitvote') }}">
-        <label for="candidate">Confirmer votre candidat :</label>
-        <select name="candidate" id="candidate">
+    <form action="{{ path('machine_confirm') }}" method="post">
+        <label for="candidate">Choisissez un candidat :</label>
+        <select id="candidate" name="candidate">
             {% for candidate in candidates %}
                 <option value="{{ candidate.id }}">{{ candidate.name }}</option>
             {% endfor %}
         </select>
-        <input type="hidden" name="encryptedVote" id="encryptedVote">
-        <input type="hidden" name="signature" id="signature">
-        <button type="button" class="btn btn-success" onclick="submitVote()">Voter</button>
+        <button type="submit">Voter</button>
     </form>
-
-    <script>
-        function submitVote() {
-            var candidateId = document.getElementById('candidate').value;
-            encryptAndSign(candidateId);
-        }
-
-        function encryptAndSign(data) {
-            encrypt(data).then(function(encryptedData) {
-                document.getElementById('encryptedVote').value = encryptedData;
-                sign(encryptedData).then(function(signature) {
-                    document.getElementById('signature').value = signature;
-                    document.getElementById('voteForm').submit();
-                });
-            });
-        }
-
-        function encrypt(data) {
-            // Convertir la chaîne de données en ArrayBuffer
-            const dataBuffer = new TextEncoder().encode(data);
-
-            // Générer une clé de chiffrement RSA
-            return crypto.subtle.generateKey(
-                {
-                    name: "RSA-OAEP",
-                    modulusLength: 2048,
-                    publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-                    hash: { name: "SHA-256" },
-                },
-                true,
-                ["encrypt", "decrypt"]
-            ).then((keyPair) => {
-                // Chiffrer les données avec la clé publique RSA
-                return crypto.subtle.encrypt(
-                    {
-                        name: "RSA-OAEP"
-                    },
-                    keyPair.publicKey,
-                    dataBuffer
-                );
-            }).then((encryptedData) => {
-                // Convertir le résultat chiffré en base64
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(encryptedData)));
-            }).catch((error) => {
-                console.error("Erreur de chiffrement :", error);
-            });
-        }
-
-        function sign(data) {
-            // Convertir la chaîne de données en ArrayBuffer
-            const dataBuffer = new TextEncoder().encode(data);
-
-            // Générer une clé de signature RSA
-            return crypto.subtle.generateKey(
-                {
-                    name: "RSASSA-PKCS1-v1_5",
-                    modulusLength: 2048,
-                    publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-                    hash: { name: "SHA-256" },
-                },
-                true,
-                ["sign", "verify"]
-            ).then((keyPair) => {
-                // Signer les données avec la clé privée RSA
-                return crypto.subtle.sign(
-                    {
-                        name: "RSASSA-PKCS1-v1_5",
-                        hash: { name: "SHA-256" },
-                    },
-                    keyPair.privateKey,
-                    dataBuffer
-                );
-            }).then((signature) => {
-                // Convertir la signature en base64
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(signature)));
-            }).catch((error) => {
-                console.error("Erreur de signature :", error);
-            });
-        }
-    </script>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
 {% endblock %}
 

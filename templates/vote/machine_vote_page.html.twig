@@ -1,0 +1,21 @@
+<!-- templates/vote/machine_vote_page.html.twig -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Machine de Vote</title>
+</head>
+<body>
+    <h1>Votez pour votre candidat</h1>
+    <form action="{{ path('machine_submitvote') }}" method="POST">
+        {% for candidate in candidates %}
+            <div>
+                <input type="radio" id="candidate_{{ candidate.id }}" name="candidate" value="{{ candidate.id }}">
+                <label for="candidate_{{ candidate.id }}">{{ candidate.name }}</label>
+            </div>
+        {% endfor %}
+        <button type="submit">Votez</button>
+    </form>
+</body>
+</html>
+

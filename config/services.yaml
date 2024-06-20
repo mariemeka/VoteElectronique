@@ -33,3 +33,4 @@ services:
    
     App\Command\UpdateUserKeysCommand:
         tags: ['console.command']
+    Symfony\Component\HttpFoundation\Session\SessionInterface: '@session'

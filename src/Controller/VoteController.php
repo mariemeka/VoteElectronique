@@ -24,7 +24,7 @@ class VoteController extends AbstractController
     }
 
     #[Route('/submitvote', name: 'submitvote', methods: ['POST'])]
-    public function submitVote(Request $request): RedirectResponse
+ public function submitVote(Request $request): RedirectResponse
     {
         $candidateId = $request->request->get('candidate');
         if (!is_numeric($candidateId)) {
@@ -33,8 +33,19 @@ class VoteController extends AbstractController
         }
 
         $user = $this->getUser();
+        if (!$user) {
+            throw $this->createNotFoundException('User not found.'); // Handle if user is not authenticated
+        }
+
         $userId = $user->getIdelecteur();
         
+        // Check if the user has already voted (using session or temporary tracking mechanism)
+        $session = $request->getSession();
+        if ($session->get('hasVoted_' . $userId, false)) {
+            $this->addFlash('info', 'Vous avez déjà voté.');
+            return $this->redirectToRoute('vote_confirmation');
+        }
+
         $dateVote = new \DateTime();
 
         $candidate = $this->entityManager->getRepository(Candidate::class)->find($candidateId);
@@ -43,49 +54,43 @@ class VoteController extends AbstractController
             return $this->redirectToRoute('vote_page');
         }
 
-        $existingVote = $this->entityManager->getRepository(Vote::class)->findOneBy(['voter' => $userId]);
-        if ($existingVote) {
-            $this->addFlash('info', 'Vous avez déjà voté.');
-            return $this->redirectToRoute('vote_confirmation');
-        }
-
-        // Retrieve the user's private key
-        $privateKey = base64_decode($user->getPrivateKey());
-
         // Create the message to be signed
         $message = json_encode(['candidateId' => $candidateId, 'userId' => $userId]);
 
         // Sign the message
-        $signature = sodium_crypto_sign_detached($message, $privateKey);
+        $signature = $this->signMessage($message, $user);
 
         $vote = new Vote();
         $vote->setCandidateId($candidate->getId());
-        $vote->setVoter($userId);
         $vote->setDateVote($dateVote);
-        $vote->setSignature(base64_encode($signature)); // Store the signature as a base64 encoded string
-
-        // Retrieve the user's public key
-        $publicKey = $user->getPublicKey();
-        $vote->setPublicKey($publicKey); // Store the public key as a base64 encoded string
+        $vote->setSignature($signature);
 
         // Save the vote to the database
         $this->entityManager->persist($vote);
         $this->entityManager->flush();
 
-        $session = $request->getSession();
-        $session->set('hasVoted', true);
-
+        $session->set('hasVoted_' . $userId, true);
+	$session->set('hasJustVoted_' . $userId, true);
         $this->addFlash('success', 'Votre vote a été soumis avec succès.');
         return $this->redirectToRoute('vote_confirmation');
+    }
+    
+private function signMessage(string $message, User $user): string
+    {
+        $privateKey = base64_decode($user->getPrivateKey());
+
+        $signature = sodium_crypto_sign_detached($message, $privateKey);
+
+        return base64_encode($signature);
     }
 
     #[Route('/vote', name: 'vote_page', methods: ['GET'])]
     public function votePage(): Response
     {
-        // Fetch candidates from the database
+      
         $candidates = $this->entityManager->getRepository(Candidate::class)->findAll();
 
-        // Render the form view and pass the candidates to the template
+      
         return $this->render('vote/vote_page.html.twig', [
             'candidates' => $candidates,
         ]);
@@ -94,19 +99,18 @@ class VoteController extends AbstractController
     #[Route('/vote-confirmation', name: 'vote_confirmation', methods: ['GET'])]
     public function voteConfirmation(Request $request): Response
     {
-        $userId = $this->getUser()->getIdelecteur();
+    $userId = $this->getUser()->getIdelecteur();
 
-        // Check if the user has already voted
-        $existingVote = $this->entityManager->getRepository(Vote::class)->findOneBy(['voter' => $userId]);
-
-        // Check the session variable to see if the user just voted
         $session = $request->getSession();
-        $hasJustVoted = $session->get('hasVoted', false);
-        $session->remove('hasVoted');
+        $hasVoted = $session->get('hasVoted_' . $userId, false);
+        $hasJustVoted = $session->get('hasJustVoted_' . $userId, false);
+        
+        // Remove hasJustVoted from session after fetching it
+        $session->remove('hasJustVoted_' . $userId);
 
         return $this->render('vote_confirmation.html.twig', [
-            'hasVoted' => $existingVote ? true : false,
-            'hasJustVoted' => $hasJustVoted,
+            'hasVoted' => $hasVoted,
+            'hasJustVoted' => $hasJustVoted, // Add this variable to pass to the template
         ]);
     }
 
@@ -140,4 +144,3 @@ class VoteController extends AbstractController
         return $publicKeys;
     }
 }
-

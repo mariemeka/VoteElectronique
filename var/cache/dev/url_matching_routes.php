@@ -15,12 +15,16 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/results' => [[['_route' => 'election_results', '_controller' => 'App\\Controller\\VoteController::electionResults'], null, ['GET' => 0], null, false, false, null]],
+        '/machine/vote' => [[['_route' => 'machine_vote', '_controller' => 'App\\Controller\\VoteMachineController::votePage'], null, ['GET' => 0], null, false, false, null]],
+        '/machine/results' => [[['_route' => 'machine_results', '_controller' => 'App\\Controller\\VoteMachineController::results'], null, ['GET' => 0], null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/welcome' => [[['_route' => 'welcome', '_controller' => 'App\\Controller\\SecurityController::welcome'], null, ['GET' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
         '/submitvote' => [[['_route' => 'submitvote', '_controller' => 'App\\Controller\\VoteController::submitvote'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/vote' => [[['_route' => 'vote_page', '_controller' => 'App\\Controller\\VoteController::votePage'], null, null, null, false, false, null]],
         '/vote-confirmation' => [[['_route' => 'vote_confirmation', '_controller' => 'App\\Controller\\VoteController::voteConfirmation'], null, ['GET' => 0], null, false, false, null]],
+        '/confirm' => [[['_route' => 'machine_confirm', '_controller' => 'App\\Controller\\VoteMachineController::confirmVote'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/submitvotes' => [[['_route' => 'machine_submitvote', '_controller' => 'App\\Controller\\VoteMachineController::submitvotes'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

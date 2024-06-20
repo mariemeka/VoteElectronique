@@ -386,6 +386,15 @@
         <argument type="service" id=".service_locator.WJzRlgB.App\Controller\VoteController"/>
       </call>
     </service>
+    <service id="App\Controller\VoteMachineController" class="App\Controller\VoteMachineController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="monolog.logger"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.WJzRlgB.App\Controller\VoteMachineController"/>
+      </call>
+    </service>
     <service id="App\Form\LoginFormType" class="App\Form\LoginFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -6142,6 +6151,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\VoteController" class="App\Controller\VoteController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\VoteController" class="App\Controller\VoteController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\VoteController" class="App\Controller\VoteController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\VoteMachineController" class="App\Controller\VoteMachineController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\VoteMachineController" class="App\Controller\VoteMachineController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\VoteMachineController" class="App\Controller\VoteMachineController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LoginFormType" class="App\Form\LoginFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\LoginFormType" class="App\Form\LoginFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
@@ -7122,6 +7134,12 @@
     <service id=".service_locator.WJzRlgB.App\Controller\VoteController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\VoteController"/>
       <argument>App\Controller\VoteController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.WJzRlgB" method="withContext"/>
+    </service>
+    <service id=".service_locator.WJzRlgB.App\Controller\VoteMachineController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\VoteMachineController"/>
+      <argument>App\Controller\VoteMachineController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.WJzRlgB" method="withContext"/>
     </service>
@@ -8296,6 +8314,7 @@
         <argument key="Symfony\Component\Form\FormRenderer" type="service_closure" id="twig.form.renderer"/>
       </argument>
     </service>
+    <service id="Symfony\Component\HttpFoundation\Session\SessionInterface" alias="session"/>
     <service id="App\Kernel" alias="kernel" public="true"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface" alias="parameter_bag"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface" alias="parameter_bag"/>

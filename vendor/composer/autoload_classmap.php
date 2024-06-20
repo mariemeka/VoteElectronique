@@ -240,6 +240,7 @@ return array(
     'Amp\\TimeoutException' => $vendorDir . '/amphp/amp/lib/TimeoutException.php',
     'Amp\\WindowsRegistry\\KeyNotFoundException' => $vendorDir . '/amphp/windows-registry/lib/KeyNotFoundException.php',
     'Amp\\WindowsRegistry\\WindowsRegistry' => $vendorDir . '/amphp/windows-registry/lib/WindowsRegistry.php',
+    'App\\Command\\UpdateUserKeysCommand' => $baseDir . '/src/Command/UpdateUserKeysCommand.php',
     'App\\Command\\UpdateUserPasswordsCommand' => $baseDir . '/src/Command/UpdateUserPasswordsCommand.php',
     'App\\Controller\\CandidateController' => $baseDir . '/src/Controller/CandidateController.php',
     'App\\Controller\\HomeController' => $baseDir . '/src/Controller/HomeController.php',

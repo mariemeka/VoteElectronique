@@ -17,10 +17,6 @@ class Vote
     private $id;
 
  
-
-  #[ORM\Column(type: 'string', length: 255)]
-    private $voter;
-
   #[ORM\Column(type: 'date')] 
     private $dateVote;
 
@@ -91,20 +87,6 @@ public function getCandidate(): ?Candidate
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-  
-
-    public function getVoter(): ?string
-    {
-        return $this->voter;
-    }
-
-    public function setVoter(string $voter): self
-    {
-        $this->voter = $voter;
-
-        return $this;
     }
 
     public function getDateVote(): ?\DateTimeInterface

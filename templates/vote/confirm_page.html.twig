@@ -1,0 +1,14 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Confirmation de Vote</h1>
+    <p>Vous avez choisi : {{ candidate.name }}</p>
+    <form action="{{ path('machine_submitvote') }}" method="post">
+        <input type="hidden" name="candidate" value="{{ candidate.id }}">
+        <label for="idelecteur">Veuillez entrer votre identifiant d'électeur pour confirmer votre vote :</label>
+        <input type="text" id="idelecteur" name="idelecteur" required>
+        <button type="submit">Confirmer</button>
+    </form>
+{% endblock %}
+

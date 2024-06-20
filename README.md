@@ -1,6 +1,24 @@
 # VoteElectronique
+###########################################
+# Pre-requis 
+installation:
+-  php
+- composer (https://getcomposer.org/download/ )
+- symfony et symfony cli (https://symfony.com/download)
+- phpX.X-xml
+- phpX.X-pgpsql
 
-Demarrage du serveur: symfony serve:start
+  Configuration:
+Ouvrez le fichier php.ini (/etc/php/X.X/apache2/php.ini ) et décommentées les 2 lignes 
+extension=pdo_pgsql
+extension=pgsql
+Ensuite,lancer
+sudo service apache2 restart (si serveur apache)*
+
+
+###########################################
+# Demarrage du serveur
+$ symfony serve:start
 
 ###########################################
 # Signature de cercle
